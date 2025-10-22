@@ -1,0 +1,668 @@
+/* General Reset and Font */
+:root {
+    --primary-color: #ff5733; /* For general highlights, can be adjusted */
+    --secondary-color: #ffc300; /* For a second highlight, like in gradients */
+    --background-color: #f7f3f3;
+    --card-bg: #ffffff;
+    --text-color: #333;
+    --country-code-color: #333;
+    --country-name-color: #888;
+    --game-name-color-base: #f44336; /* Red for the line */
+    --game-name-color-alt: #4CAF50; /* Green for other lines */
+    --border-radius: 8px;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* Header Styling */
+header {
+    text-align: center;
+    padding: 40px 20px;
+    margin-bottom: 30px;
+    background-image: linear-gradient(to right, #ff7e5f, #feb47b); /* Gradient from image 74 */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent; /* Fallback for h1 and p */
+}
+
+header h1 {
+    font-size: 3em;
+    font-weight: 700;
+    /* Special text coloring for the main title to mimic the gradient */
+    background-image: linear-gradient(to right, #f44336, #FF9800);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: #FF9800; /* Fallback */
+    margin-bottom: 5px;
+}
+
+header p {
+    font-size: 1.2em;
+    font-weight: 400;
+    color: var(--text-color);
+    -webkit-text-fill-color: var(--text-color); /* Override transparent fill */
+    margin-top: 10px;
+}
+
+.header-icon {
+    /* Placeholder for the icon on image 74 */
+    display: inline-block;
+    background-color: #f44336;
+    padding: 8px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.header-icon img {
+    width: 30px;
+    height: 30px;
+    filter: invert(1); /* Assuming a white icon on a colored background */
+}
+
+/* Grid Container */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Game Card Styling */
+.game-card {
+    background-color: var(--card-bg);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 150px;
+}
+
+.game-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+.game-card h2 {
+    font-size: 1.8em;
+    font-weight: 600;
+    color: var(--country-code-color);
+    margin-bottom: 0;
+}
+
+.game-card h3 {
+    font-size: 1em;
+    font-weight: 400;
+    color: var(--country-name-color);
+    margin-bottom: 15px;
+}
+
+.game-card .game-name {
+    font-size: 1em;
+    font-weight: 600;
+    color: var(--game-name-color-base);
+    position: relative;
+    padding-top: 5px;
+    display: inline-block;
+}
+
+/* Underline style from the image */
+.game-card .game-name::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+    height: 3px;
+    background-color: var(--game-name-color-alt); /* Green underline as seen in many cards */
+    border-radius: 5px;
+}
+
+.game-card[data-game="Loteria"] .game-name,
+.game-card[data-game="Tejo"] .game-name,
+.game-card[data-game="Peteca"] .game-name,
+.game-card[data-game="Canicas"] .game-name,
+.game-card[data-game="Bolita"] .game-name,
+.game-card[data-game="Four Square"] .game-name,
+.game-card[data-game="Barrilete"] .game-name,
+.game-card[data-game="Tinjoroch"] .game-name,
+.game-card[data-game="Chibola"] .game-name,
+.game-card[data-game="Yaces"] .game-name,
+.game-card[data-game="Escondidas"] .game-name,
+.game-card[data-game="Osle"] .game-name,
+.game-card[data-game="Vitilla"] .game-name,
+.game-card[data-game="Bolas Criollas"] .game-name,
+.game-card[data-game="Dandy Shandy"] .game-name,
+.game-card[data-game="All Fours"] .game-name,
+.game-card[data-game="Warri"] .game-name,
+.game-card[data-game="Ring Play"] .game-name,
+.game-card[data-game="Conch Shell"] .game-name,
+.game-card[data-game="Ten-Ten"] .game-name,
+.game-card[data-game="Awari"] .game-name,
+.game-card[data-game="Pétanque Créole"] .game-name,
+.game-card[data-game="Jacks"] .game-name,
+.game-card[data-game="Hopscotch Tropical"] .game-name,
+.game-card[data-game="Marble Game"] .game-name,
+.game-card[data-game="El Sapo"] .game-name,
+.game-card[data-game="Sapo"] .game-name,
+.game-card[data-game="Rayuela"] .game-name,
+.game-card[data-game="Trompo"] .game-name,
+.game-card[data-game="Zumbambico"] .game-name,
+.game-card[data-game="Payupé"] .game-name,
+.game-card[data-game="Crokinole"] .game-name,
+.game-card[data-game="Trompo Nica"] .game-name,
+.game-card[data-game="Peregrina"] .game-name
+.game-card[data-game="Rounders Caribbean"] .game-name,
+.game-card[data-game="El Sapo"] .game-name,
+.game-card[data-game="Sapo"] .game-name,
+.game-card[data-game="Rayuela"] .game-name,
+.game-card[data-game="Trompo"] .game-name,
+.game-card[data-game="Zumbambico"] .game-name,
+.game-card[data-game="Payupé"] .game-name,
+.game-card[data-game="Crokinole"] .game-name,
+.game-card[data-game="Trompo Nica"] .game-name,
+.game-card[data-game="Peregrina"] .game-name,
+.game-card[data-game="Rounders Caribbean"] .game-name{
+    color: var(--game-name-color-alt); /* Green text */
+}
+
+/* Modal Styling */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding-top: 50px;
+}
+
+.modal-content {
+    background-color: var(--card-bg);
+    margin: 5% auto;
+    padding: 30px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 1000px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+#modal-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#modal-country-code {
+    display: block;
+    font-size: 2.5em;
+    font-weight: 700;
+    color: var(--text-color);
+}
+
+#modal-country-name {
+    font-size: 2.5em;
+    font-weight: 600;
+    margin: 5px 0 10px 0;
+    /* This will be dynamic based on the country, mimicking the image color */
+    color: #FF9800;
+    background-image: linear-gradient(to right, #ff7e5f, #feb47b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.game-line {
+    width: 100px;
+    height: 5px;
+    background-color: #4CAF50; /* Green line */
+    margin: 0 auto 20px auto;
+    border-radius: 5px;
+}
+
+.modal-body {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.description-panel, .play-panel {
+    flex: 1 1 45%;
+    padding: 20px;
+    border-radius: var(--border-radius);
+    min-width: 300px;
+}
+
+.description-panel {
+    background-color: #fff0eb; /* Light orange background from image 78 */
+    border-left: 5px solid var(--primary-color);
+}
+
+.play-panel {
+    background-color: var(--card-bg);
+}
+
+.description-panel p:first-child {
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: var(--text-color);
+}
+
+.description-panel h3 {
+    font-size: 1.2em;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.description-panel ol {
+    list-style: none;
+    padding: 0;
+}
+
+.description-panel ol li {
+    background-color: var(--card-bg);
+    padding: 10px;
+    margin-bottom: 8px;
+    border-radius: 5px;
+    display: flex;
+    align-items: flex-start;
+    font-size: 0.95em;
+}
+
+.description-panel ol li::before {
+    content: attr(data-number);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 25px;
+    height: 25px;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 50%;
+    font-weight: 600;
+    font-size: 0.8em;
+    margin-right: 10px;
+    flex-shrink: 0;
+}
+
+/* Play Panel - General */
+.play-panel h3 {
+    font-size: 1.5em;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.play-panel h3::before {
+    content: "▶";
+    font-size: 1.2em;
+    margin-right: 10px;
+    color: var(--primary-color);
+}
+
+/* Rayuela (Hopscotch) specific styles (Image 78) */
+.rayuela-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 10px;
+    width: 100%;
+    max-width: 300px;
+    margin: 20px auto;
+}
+
+.rayuela-grid .casilla {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    font-weight: 600;
+    border-radius: var(--border-radius);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: background-color 0.2s;
+}
+
+.rayuela-grid .casilla:nth-child(9) {
+    grid-column: 1 / span 2;
+}
+
+.rayuela-grid .casilla:last-child {
+    background-color: #f7f3f3;
+    grid-column: 1 / span 2;
+    position: relative;
+    padding-top: 10px;
+}
+
+.rayuela-grid .casilla.piedra {
+    background-color: #ddd;
+    color: #888;
+}
+
+.rayuela-grid .casilla.piedra::after {
+    content: '☁'; /* Cloud/stone icon */
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    font-size: 2em;
+    line-height: 1;
+    color: #b0c4de;
+}
+
+.rayuela-actions {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.rayuela-actions button {
+    padding: 10px 20px;
+    font-size: 1.1em;
+    font-weight: 600;
+    color: white;
+    background-image: linear-gradient(to right, #f44336, #FF9800); /* Gradient button */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.rayuela-actions button:hover {
+    opacity: 0.9;
+}
+
+/* Sapo (Toad) specific styles (Image 79) */
+.sapo-score-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.sapo-score-item {
+    background-color: #f0f0f0;
+    padding: 15px;
+    border-radius: var(--border-radius);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 80px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.sapo-score-item img {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 5px;
+}
+
+.sapo-score-item p {
+    font-size: 1em;
+    font-weight: 600;
+}
+
+.sapo-score-item span {
+    font-size: 0.8em;
+    color: #666;
+}
+
+.sapo-actions {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.sapo-actions .progress-bar {
+    height: 10px;
+    background: linear-gradient(to right, #f44336, #FF9800);
+    border-radius: 5px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.sapo-actions button {
+    background-color: transparent;
+    color: #f44336;
+    border: 2px solid #f44336;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.sapo-actions button:hover {
+    background-color: #f44336;
+    color: white;
+}
+
+/* Trompo (Spinning Top) specific styles (Image 80) */
+.trompo-container {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.trompo-animation {
+    width: 100%;
+    height: 150px;
+    background: linear-gradient(45deg, #e6e6ff, #f7f7ff);
+    border-radius: var(--border-radius);
+    margin-bottom: 20px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.trompo-icon {
+    width: 80px;
+    height: 80px;
+    background-color: #9370db; /* Purple color */
+    border-radius: 50%;
+    position: relative;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.trompo-spin-bar {
+    height: 30px;
+    background: linear-gradient(to right, #f44336, #FF9800);
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.trompo-record p {
+    font-size: 1.1em;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.trompo-actions button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+    font-weight: 600;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.trompo-actions button:first-of-type {
+    background-image: linear-gradient(to right, #f44336, #FF9800);
+    color: white;
+}
+
+.trompo-actions button:nth-of-type(2) {
+    background-color: #ccc;
+    color: var(--text-color);
+}
+
+.trompo-actions button:hover {
+    opacity: 0.9;
+}
+
+.trompo-tip {
+    background-color: #fffac8;
+    border-left: 5px solid #ffeb3b;
+    padding: 10px;
+    margin-top: 20px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    text-align: left;
+}
+
+/* Lotería (Mexican Bingo) specific styles (Image 77) */
+.loteria-container {
+    text-align: center;
+}
+
+.loteria-card-display {
+    background-color: #f7f3f3;
+    padding: 20px;
+    border-radius: var(--border-radius);
+    margin-bottom: 20px;
+    text-align: center;
+    min-height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.loteria-current-card {
+    width: 120px;
+    height: 160px;
+    background-color: #f44336; /* Red background for the card */
+    border-radius: var(--border-radius);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 3em;
+    font-weight: 700;
+}
+
+.loteria-card-display small {
+    display: block;
+    margin-top: 10px;
+    color: #666;
+}
+
+.loteria-table {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.loteria-image {
+    background-color: #f0f0f0;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color 0.2s;
+    /* Placeholder for the emojis */
+}
+
+.loteria-actions button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1.1em;
+    font-weight: 600;
+    color: white;
+    background-image: linear-gradient(to right, #f44336, #FF9800);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+@media (max-width: 768px) {
+    .modal-content {
+        width: 95%;
+        margin: 10px auto;
+        padding: 20px;
+    }
+
+    .modal-body {
+        flex-direction: column;
+    }
+
+    .description-panel, .play-panel {
+        flex: 1 1 100%;
+        min-width: unset;
+    }
+
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    header h1 {
+        font-size: 2.5em;
+    }
+}
+
+/* Añadir al final de styles.css */
+.loteria-image.marcado {
+    background-color: #4CAF50; /* Green color for marked */
+    color: white;
+    box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+}
